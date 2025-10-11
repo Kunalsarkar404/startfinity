@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { FaCheckCircle, FaTimes } from 'react-icons/fa';
+import { emailService } from '../services/emailService';
 
 const Apply = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -15,10 +18,31 @@ const Apply = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submission:', formData);
-        setShowSuccessModal(true);
+        setLoading(true);
+        setError('');
+
+        try {
+            const result = await emailService.sendApplicationForm(formData);
+
+            if (result.success) {
+                setShowSuccessModal(true);
+                // Reset form
+                setFormData({
+                    fullName: '',
+                    email: '',
+                    phone: '',
+                    businessName: ''
+                });
+            } else {
+                setError(result.message);
+            }
+        } catch (err) {
+            setError('An unexpected error occurred. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -41,6 +65,13 @@ const Apply = () => {
                     <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
                         <form onSubmit={handleSubmit}>
                             <h2 className="text-2xl font-bold mb-6 text-center">Get Started Today</h2>
+
+                            {error && (
+                                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                    <p className="text-red-700 text-sm">{error}</p>
+                                </div>
+                            )}
+
                             <div className="space-y-6">
                                 <div>
                                     <label className="block text-sm font-semibold mb-2">Full Name *</label>
@@ -94,9 +125,10 @@ const Apply = () => {
 
                             <button
                                 type="submit"
-                                className="w-full mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+                                disabled={loading}
+                                className="w-full mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                             >
-                                Submit Application
+                                {loading ? 'Submitting...' : 'Submit Application'}
                             </button>
                         </form>
                     </div>

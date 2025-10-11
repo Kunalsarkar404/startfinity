@@ -7,11 +7,11 @@ const HeroSection = () => {
         <div className="py-4">
             {/* Heading */}
             <h1 className="font-extrabold mb-4 tracking-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: '1.1' }}>
-                Your Business Deserves
-                <span className="block text-yellow-400 mt-1">Funding, Not Rejection</span>
+                Your Vision Deserves
+                <span className="block text-yellow-400 mt-1">Growth, Not Limits</span>
             </h1>
             <p className="mb-3 text-blue-50 font-medium text-xl">
-                आपकी सफलता, हमारी ज़िम्मेदारी
+                आपका विश्वास, हमारी ताकत
             </p>
             <p className="mb-6 text-blue-100 font-medium text-base">
                 Get ₹5L to ₹10Cr with India's fastest MSME funding
@@ -20,7 +20,7 @@ const HeroSection = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                 {[
                     { number: '48hrs', label: 'Approval' },
-                    { number: '₹500Cr+', label: 'Funded' },
+                    { number: '₹120Cr+', label: 'Funded' },
                     { number: '95%', label: 'Success' },
                     { number: '100%', label: 'Online' }
                 ].map((stat, i) => (

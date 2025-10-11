@@ -4,10 +4,10 @@ import HeroSection from '../components/home/HeroSection';
 import EligibilityForm from '../components/home/EligibilityForm';
 import PartnersAndImpactSection from '../components/home/PartnersAndImpactSection';
 import MSMESuccessSection from '../components/home/MSMESuccessSection';
-import GovernmentSchemesSection from '../components/home/GovernmentSchemesSection';
 import TailoredFundingSection from '../components/home/TailoredFundingSection';
 import HowItWorksSection from '../components/home/HowItWorksSection';
 import ContactSection from '../components/home/ContactSection';
+import { emailService } from '../services/emailService';
 
 const Home = () => {
     const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ const Home = () => {
     }, []);
 
     // Form handlers
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validation
@@ -57,22 +57,38 @@ const Home = () => {
             return;
         }
 
-        // Simulate API call
+        // Send via EmailJS
         setLoading(true);
         setErrors({});
 
-        setTimeout(() => {
-            console.log('Form submitted:', formData);
-            setLoading(false);
-            setSuccess(true);
-            addToast('✅ Your eligibility report will be sent to your email shortly!', 'success', 5000);
+        try {
+            const eligibilityData = {
+                businessType: formData.businessType,
+                annualTurnover: formData.fundingRequired, // Using funding required as turnover for now
+                loanAmount: formData.fundingRequired,
+                businessAge: formData.businessStage,
+                location: 'Not specified'
+            };
 
-            // Reset after 5 seconds
-            setTimeout(() => {
-                setSuccess(false);
-                setFormData({ businessType: '', fundingRequired: '', businessStage: '' });
-            }, 5000);
-        }, 1500);
+            const result = await emailService.sendEligibilityForm(eligibilityData);
+
+            if (result.success) {
+                setSuccess(true);
+                addToast('✅ Your eligibility report will be sent to your email shortly!', 'success', 5000);
+
+                // Reset after 5 seconds
+                setTimeout(() => {
+                    setSuccess(false);
+                    setFormData({ businessType: '', fundingRequired: '', businessStage: '' });
+                }, 5000);
+            } else {
+                addToast('Failed to submit eligibility check. Please try again.', 'error', 4000);
+            }
+        } catch (error) {
+            addToast('An unexpected error occurred. Please try again.', 'error', 4000);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -92,7 +108,7 @@ const Home = () => {
             <ToastContainer toasts={toasts} removeToast={removeToast} />
 
             {/* Hero Section with Eligibility Form */}
-            <section className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-blue-700 text-white py-16 lg:py-16 overflow-hidden">
+            <section className="relative bg-gradient-to-b from-blue-700 to-purple-600 text-white py-16 lg:py-16 overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0djIwaDIwVjE0SDM2em0tMiAySDRWNGgzMHYxMHptMCAydjMwSDRWMTZoMzB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
 

@@ -129,7 +129,7 @@ const PartnersAndImpactSection = () => {
                             <p
                                 className="text-3xl md:text-4xl font-extrabold mb-4 leading-none"
                             >
-                                ₹<CountUp end={500} duration={2000} suffix=" Crore+" />
+                                ₹<CountUp end={120} duration={2000} suffix=" Crore+" />
                             </p>
                             <p className="text-lg text-white/90 font-medium leading-relaxed">
                                 Facilitated in MSME funding through strategic partnerships
@@ -139,7 +139,7 @@ const PartnersAndImpactSection = () => {
                             <p
                                 className="text-3xl md:text-4xl font-extrabold mb-4 leading-none"
                             >
-                                <CountUp end={200} duration={2000} suffix="+" />
+                                <CountUp end={20000} duration={2000} suffix="+" />
                             </p>
                             <p className="text-lg text-white/90 font-medium leading-relaxed">
                                 Businesses trusted us across India

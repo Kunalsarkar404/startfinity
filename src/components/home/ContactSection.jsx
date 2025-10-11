@@ -57,7 +57,7 @@ const ContactSection = () => {
                                         Get instant support via WhatsApp. Our funding experts are available from 9 AM to 8 PM.
                                     </p>
                                     <a
-                                        href="https://wa.me/919289247741?text=Hi%20STARTFINITY,%20I%20need%20help%20with%20funding"
+                                        href="https://wa.me/9157142657?text=Hi%20STARTFINITY,%20I%20need%20help%20with%20funding"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200"
@@ -80,10 +80,10 @@ const ContactSection = () => {
                                         Speak with our funding experts directly. Available Monday to Saturday, 9 AM - 6 PM.
                                     </p>
                                     <a
-                                        href="tel:+919289247741"
+                                        href="tel:+919157142657"
                                         className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200"
                                     >
-                                        +91 92892 47741
+                                        +91 9157142657
                                     </a>
                                 </div>
                             </div>

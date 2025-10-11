@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { companyProfile } from '../data/companyProfile';
+import { emailService } from '../services/emailService';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +12,10 @@ const Contact = () => {
         message: ''
     });
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -18,10 +23,33 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Thank you for contacting us! We will get back to you soon.');
+        setLoading(true);
+        setError('');
+        setSuccess('');
+
+        try {
+            const result = await emailService.sendContactForm(formData);
+
+            if (result.success) {
+                setSuccess(result.message);
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    subject: '',
+                    message: ''
+                });
+            } else {
+                setError(result.message);
+            }
+        } catch (err) {
+            setError('An unexpected error occurred. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -43,6 +71,19 @@ const Contact = () => {
                         {/* Contact Form */}
                         <div>
                             <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+
+                            {error && (
+                                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                    <p className="text-red-700 text-sm">{error}</p>
+                                </div>
+                            )}
+
+                            {success && (
+                                <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                    <p className="text-green-700 text-sm">{success}</p>
+                                </div>
+                            )}
+
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label className="block text-sm font-semibold mb-2">Full Name *</label>
@@ -111,9 +152,10 @@ const Contact = () => {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition transform hover:scale-105"
+                                    disabled={loading}
+                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                                 >
-                                    Send Message
+                                    {loading ? 'Sending...' : 'Send Message'}
                                 </button>
                             </form>
                         </div>
@@ -165,7 +207,7 @@ const Contact = () => {
                                 {/* WhatsApp */}
                                 <div className="flex items-start">
                                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mr-4">
-                                        <FaWhatsapp size={24} />
+                                        <FaPhone size={24} />
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">WhatsApp</h3>

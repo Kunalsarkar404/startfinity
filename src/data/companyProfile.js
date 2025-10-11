@@ -9,7 +9,7 @@ export const companyProfile = {
         foundedYear: 2020,
         headquarters: "Ahmedabad, Gujarat",
         website: "www.startfinitynavigator.com",
-        email: "startfinitynavigator@gmail.com",
+        email: "info@startfinitynavigator.com",
         phone: "+91 9157142657",
         panCard: "AABCS1234F",
         cin: "U74999DL2020PTC369876",
@@ -53,50 +53,11 @@ export const companyProfile = {
         impact: "We've facilitated over ₹750 Crores in funding, helping create 50,000+ direct and indirect jobs across India."
     },
 
-    // Leadership Team
-    leadership: [
-        {
-            name: "Rajesh Kumar Sharma",
-            position: "Founder & CEO",
-            experience: "20+ years",
-            background: "Former VP at HDFC Bank, specialized in MSME lending",
-            education: "MBA Finance - IIM Ahmedabad, B.Tech - IIT Delhi",
-            expertise: "Banking, Risk Management, Business Strategy",
-            achievements: "Led MSME portfolio worth ₹10,000 Cr+ at HDFC"
-        },
-        {
-            name: "Priya Sharma",
-            position: "Co-Founder & CTO",
-            experience: "15+ years",
-            background: "Former Lead Engineer at Razorpay, Fintech specialist",
-            education: "M.Tech Computer Science - IIT Bombay",
-            expertise: "Fintech, AI/ML, Product Development",
-            achievements: "Built lending platforms serving 1M+ users"
-        },
-        {
-            name: "Dr. Amit Patel",
-            position: "Chief Risk Officer",
-            experience: "18+ years",
-            background: "Former Chief Risk Officer at Yes Bank MSME division",
-            education: "PhD Economics - Delhi School of Economics",
-            expertise: "Credit Risk, Regulatory Compliance, Data Analytics",
-            achievements: "Reduced NPAs by 40% through innovative risk models"
-        },
-        {
-            name: "Sunita Agarwal",
-            position: "Chief Operations Officer",
-            experience: "16+ years",
-            background: "Former Operations Head at Bajaj Finserv",
-            education: "MBA Operations - XLRI Jamshedpur",
-            expertise: "Operations Excellence, Process Automation",
-            achievements: "Scaled operations from 100 to 10,000 clients/month"
-        }
-    ],
 
     // Business Statistics
     statistics: {
-        clientsServed: "200+",
-        fundingFacilitated: "₹500 Crores",
+        clientsServed: "20,000+",
+        fundingFacilitated: "₹200+ Crores",
         successRate: "95%",
         statesCovered: "28/36",
         avgProcessingTime: "48 hours",

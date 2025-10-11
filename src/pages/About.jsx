@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheckCircle, FaUsers, FaLightbulb, FaRocket, FaEye, FaHandshake } from 'react-icons/fa';
-import { companyProfile } from '../data/companyProfile';
+import companyProfile from '../data/companyProfile';
 
 const About = () => {
     return (
@@ -11,7 +11,7 @@ const About = () => {
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-5xl font-bold mb-6">About STARTFINITY</h1>
                         <p className="text-xl text-gray-100">
-                            Empowering MSMEs with accessible funding solutions and expert guidance
+                            Let us take care of the formalities while you focus on building your vision!
                         </p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const About = () => {
                             </div>
                             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                             <p className="text-gray-700 leading-relaxed">
-                                {companyProfile.mission}
+                                Our mission is to empower businesses by simplifying legal, financial, and operational complexities, providing seamless end-to-end solutions that enable entrepreneurs to focus on growth, success, and innovation.
                             </p>
                         </div>
 
@@ -37,7 +37,7 @@ const About = () => {
                             </div>
                             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
                             <p className="text-gray-700 leading-relaxed">
-                                {companyProfile.vision}
+                                Our vision is to be the most trusted and comprehensive business consultancy firm, providing seamless, end-to-end solutions that drive entrepreneurial success and empower businesses to navigate growth with confidence.
                             </p>
                         </div>
                     </div>
@@ -60,16 +60,16 @@ const About = () => {
                         {/* Text on Right */}
                         <div>
                             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                                {companyProfile.story.founding} {companyProfile.story.problem}
+                                At Startfinity Navigator Private Limited, we provide end-to-end business consultancy services, allowing entrepreneurs and businesses to focus on growth while we handle legal and operational complexities.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                                {companyProfile.story.solution}
+                                Our expert team simplifies incorporation, compliance, taxation, and regulatory filings, ensuring smooth and efficient operations. Whether you’re a startup, small business, or large enterprise, we tailor our solutions to your specific needs.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                                {companyProfile.story.growth}
+                                Committed to accuracy, efficiency, and transparency, we empower businesses by eliminating bureaucratic hurdles and offering strategic guidance, enabling them to navigate the corporate landscape with confidence.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed">
-                                {companyProfile.story.impact}
+                                With over 3+ years of experience, we have onboarded 1000+ startups and provide 50+ services, helping businesses succeed with our comprehensive support.
                             </p>
                         </div>
                     </div>
@@ -80,8 +80,14 @@ const About = () => {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-center mb-12">Our Core Values</h2>
-                    <div className="grid md:grid-cols-4 gap-8">
-                        {companyProfile.coreValues.map((value, index) => {
+                    <div className="grid md:grid-cols-5 gap-8">
+                        {[
+                            { title: 'Integrity', description: 'Ensuring transparency and trust', icon: 'FaEye' },
+                            { title: 'Excellence', description: 'Delivering high-quality solutions', icon: 'FaCheckCircle' },
+                            { title: 'Client-Centricity', description: 'Tailoring services to needs', icon: 'FaUsers' },
+                            { title: 'Innovation', description: 'Driving smarter solutions', icon: 'FaLightbulb' },
+                            { title: 'Reliability', description: 'Being a dependable partner', icon: 'FaHandshake' }
+                        ].map((value, index) => {
                             const getIcon = (iconName) => {
                                 switch (iconName) {
                                     case 'FaEye': return <FaEye />;
@@ -114,7 +120,12 @@ const About = () => {
                         Meet the experts driving our mission forward
                     </p>
                     <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                        {companyProfile.leadership.slice(0, 4).map((member, index) => (
+                        {[
+                            { name: 'Bhadoriya Mohini', position: 'CEO & Founder', experience: '3+ years', expertise: 'Strategic Leadership & Business Development' },
+                            { name: 'Himashu', position: 'Legal Team Head', experience: '3+ years', expertise: 'Legal Compliance & Documentation' },
+                            { name: 'Sahil Piprotar', position: 'Admin Team Head', experience: '3+ years', expertise: 'Operational Management' },
+                            { name: 'Rajesh Rajawat', position: 'Account Team Head', experience: '3+ years', expertise: 'Financial Oversight & Taxation' }
+                        ].map((member, index) => (
                             <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
                                 <div className="h-64 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
@@ -132,6 +143,7 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
 
             {/* Stats Section */}
             <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
