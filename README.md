@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# STARTFINITY - MSME Funding Platform
+
+A complete business funding platform website built with React, TailwindCSS, and React Router. This application provides comprehensive information about MSME funding options, government schemes, and business services.
+
+## 🚀 Features
+
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ 7 Complete pages with modern UI
+- ✅ Interactive components and forms
+- ✅ Multi-step application form
+- ✅ React Router navigation
+- ✅ TailwindCSS styling
+- ✅ Professional business layout
+
+## 📁 Pages
+
+1. **Home** - Hero section, eligibility checker, schemes, stats
+2. **About** - Mission, vision, team, company story
+3. **Services** - Funding, registration, certifications, consulting
+4. **Success Stories** - Testimonials and case studies
+5. **Events** - Upcoming workshops and seminars
+6. **Contact** - Contact form and office locations
+7. **Apply** - Multi-step funding application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

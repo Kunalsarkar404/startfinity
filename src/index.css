@@ -1,13 +1,546 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading hierarchy with proper font sizes */
+  h1 {
+    @apply font-heading font-extrabold tracking-tight;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    /* 36px - 60px */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply font-heading font-bold tracking-tight;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    /* 30px - 48px */
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    @apply font-heading font-bold;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    /* 24px - 36px */
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    @apply font-heading font-semibold;
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    /* 20px - 30px */
+    line-height: 1.4;
+  }
+
+  h5 {
+    @apply font-heading font-semibold;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    /* 18px - 24px */
+    line-height: 1.5;
+  }
+
+  h6 {
+    @apply font-heading font-semibold;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    /* 16px - 20px */
+    line-height: 1.5;
+  }
+
+  /* Body text */
+  p {
+    @apply text-base;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+
+  /* Button Styles - Professional sizing */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-primary-700 transition-all duration-200 shadow-soft hover:shadow-medium;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-600 px-6 py-3.5 rounded-xl font-semibold border-2 border-primary-600 hover:bg-primary-50 transition-all duration-200;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-blue-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-large transition-all duration-200 transform hover:scale-105;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300;
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-medium hover:shadow-large transition-all duration-300 transform hover:-translate-y-1;
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  /* Input Styles - Better typography */
+  .input-field {
+    @apply w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-gray-50 focus:bg-white;
+    font-size: 1rem;
+    /* 16px - prevents zoom on mobile */
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* Section Styles - Responsive typography */
+  .section-title {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    /* 30px - 48px */
+    @apply font-bold text-gray-900 mb-4 tracking-tight;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    /* 18px - 20px */
+    @apply text-gray-600 mb-8;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold;
+    line-height: 1.25;
+  }
+
+  /* Stat number styling */
+  .stat-number {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    /* 32px - 40px */
+    @apply font-extrabold;
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium;
+    line-height: 1.4;
+  }
+}
+
+@layer utilities {
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f7f7f7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Text shadow */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========================================
+     ACCESSIBILITY: FOCUS INDICATORS
+     ======================================== */
+
+  /* Remove default outline and add custom focus styles */
+  *:focus {
+    outline: none;
+  }
+
+  /* Visible focus indicator for keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.5);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Focus styles for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2;
+  }
+
+  /* Focus within for containers */
+  .focus-within\:ring:focus-within {
+    @apply ring-2 ring-primary-500;
+  }
+
+  /* ========================================
+     ACCESSIBILITY: REDUCED MOTION
+     ======================================== */
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ========================================
+     LOADING STATES
+     ======================================== */
+
+  /* Spinner animation */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Pulse animation for loading */
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  .skeleton-text {
+    @apply h-4 bg-gray-200 rounded animate-pulse;
+  }
+
+  /* Button loading state */
+  .btn-loading {
+    @apply relative pointer-events-none opacity-70;
+  }
+
+  .btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+  }
+
+  /* ========================================
+     COLOR CONTRAST FIXES (WCAG AA/AAA)
+     ======================================== */
+
+  /* Use these instead of gray-400 for better contrast */
+  .text-muted {
+    @apply text-gray-600;
+  }
+
+  .text-subtle {
+    @apply text-gray-500;
+  }
+
+  .text-placeholder {
+    @apply text-gray-400;
+    /* Only use for actual placeholders, not body text */
+  }
+
+  /* Link colors with proper contrast */
+  .link-primary {
+    @apply text-primary-600 hover:text-primary-700 underline-offset-2;
+  }
+
+  .link-subtle {
+    @apply text-gray-700 hover:text-primary-600;
+  }
+
+  /* ========================================
+     SCROLL REVEAL ANIMATIONS (Phase 3)
+     ======================================== */
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-reveal.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delay for grid items */
+  .scroll-reveal:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .scroll-reveal:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .scroll-reveal:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .scroll-reveal:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .scroll-reveal:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+
+  .scroll-reveal:nth-child(6) {
+    transition-delay: 0.6s;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ripple effect for buttons */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Pulse animation for attention */
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  /* Bounce animation */
+  @keyframes bounce-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  /* Toast animations */
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out;
+  }
+
+  @keyframes progress {
+    from {
+      width: 100%;
+    }
+
+    to {
+      width: 0%;
+    }
+  }
+
+  .animate-progress {
+    animation: progress linear forwards;
+  }
+
+  /* Shimmer effect for lazy loading */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  /* Skeleton pulse animation */
+  @keyframes skeleton-pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Scale-in animation for modals and overlays */
+  @keyframes scale-in {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  /* Fade-in animation */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  /* Slide-up animation */
+  @keyframes slide-up {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
 }
