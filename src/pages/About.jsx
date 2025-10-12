@@ -21,8 +21,8 @@ const About = () => {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12">
-                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
-                            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-6">
+                        <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-8">
+                            <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center text-white mb-6">
                                 <FaLightbulb size={32} />
                             </div>
                             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
@@ -31,8 +31,8 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8">
-                            <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white mb-6">
+                        <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-xl p-8">
+                            <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center text-white mb-6">
                                 <FaRocket size={32} />
                             </div>
                             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
@@ -129,12 +129,12 @@ const About = () => {
                             <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
                                 <div className="h-64 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                                        <FaUsers className="text-4xl text-blue-600" />
+                                        <FaUsers className="text-4xl text-primary-600" />
                                     </div>
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                                    <p className="text-blue-600 font-semibold mb-2">{member.position}</p>
+                                    <p className="text-primary-600 font-semibold mb-2">{member.position}</p>
                                     <p className="text-gray-600 text-sm mb-2">{member.experience} experience</p>
                                     <p className="text-gray-500 text-xs">{member.expertise}</p>
                                 </div>

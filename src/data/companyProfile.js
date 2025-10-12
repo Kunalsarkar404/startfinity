@@ -85,9 +85,9 @@ export const companyProfile = {
             category: "Government Schemes",
             subcategories: [
                 "PMEGP (Prime Minister Employment Generation Programme)",
+                "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE)",
                 "Mudra Loans",
                 "Stand Up India",
-                "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE)",
                 "Technology Upgradation Fund Scheme (TUFS)",
                 "Credit Linked Capital Subsidy (CLCS)"
             ]
@@ -214,7 +214,7 @@ export const companyProfile = {
             type: "Head Office",
             address: "315 Sahitya Arcade, near Shalby Hospitals, Vasant Vihar 2, Nava Naroda, Ahmedabad, Gujarat 382330",
             phone: "+91 92892 47741",
-            email: "support@startfinity.co.in"
+            email: "bmohinibhadoriya@gmail.com"
         },
         {
             type: "Mumbai Branch",

@@ -46,7 +46,7 @@ const ContactSection = () => {
                     {/* WhatsApp & Call Support */}
                     <div className="md:col-span-2 space-y-6">
                         {/* WhatsApp Support */}
-                        <div className="bg-green-50 border-2 border-green-200 rounded-xl p-8 hover:border-green-300 hover:shadow-md transition-all duration-200">
+                        <div className="bg-primary-50 border-2 border-primary-200 rounded-xl p-8 hover:border-primary-300 hover:shadow-md transition-all duration-200">
                             <div className="flex items-start">
                                 <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center text-white mr-6 flex-shrink-0">
                                     <FaWhatsapp size={28} />
@@ -69,7 +69,7 @@ const ContactSection = () => {
                         </div>
 
                         {/* Call Support */}
-                        <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-8 hover:border-blue-300 hover:shadow-md transition-all duration-200">
+                        <div className="bg-primary-50 border-2 border-primary-200 rounded-xl p-8 hover:border-primary-300 hover:shadow-md transition-all duration-200">
                             <div className="flex items-start">
                                 <div className="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center text-white mr-6 flex-shrink-0">
                                     <FaPhone size={24} />

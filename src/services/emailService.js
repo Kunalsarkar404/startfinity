@@ -1,8 +1,10 @@
+
 import emailjs from '@emailjs/browser';
 
 // Initialize EmailJS with public key
 const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 
 if (EMAILJS_PUBLIC_KEY) {
     emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -17,9 +19,9 @@ export const emailService = {
                 from_name: formData.name,
                 from_email: formData.email,
                 phone: formData.phone,
-                subject: formData.subject,
+                subject: formData.subject || 'New Message',
                 message: formData.message,
-                to_email: 'support@startfinity.co.in'
+                to_email: 'info@startfinitynavigator.com'
             };
 
             const response = await emailjs.send(
@@ -50,14 +52,21 @@ export const emailService = {
                 from_name: formData.fullName,
                 from_email: formData.email,
                 phone: formData.phone,
-                business_name: formData.businessName,
-                to_email: 'support@startfinity.co.in',
-                application_type: 'Funding Application'
+                subject: 'New Funding Application Submitted',
+                message: `New funding application received:
+                
+Name: ${formData.fullName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Business Name: ${formData.businessName}
+                
+Please contact this applicant for further processing.`,
+                to_email: 'info@startfinitynavigator.com'
             };
 
             const response = await emailjs.send(
                 EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID_APPLY,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT,
                 templateParams
             );
 
@@ -80,13 +89,20 @@ export const emailService = {
     sendEligibilityForm: async (formData) => {
         try {
             const templateParams = {
-                business_type: formData.businessType,
-                annual_turnover: formData.annualTurnover,
-                loan_amount: formData.loanAmount,
-                business_age: formData.businessAge,
-                location: formData.location,
-                to_email: 'support@startfinity.co.in',
-                form_type: 'Eligibility Check'
+                from_name: 'Eligibility Check Request',
+                from_email: 'bmohinibhadoriya@gmail.com',
+                phone: 'N/A',
+                subject: 'New Eligibility Check Submitted',
+                message: `New eligibility check request received:
+                
+Business Type: ${formData.businessType}
+Annual Turnover: ${formData.annualTurnover}
+Loan Amount Required: ${formData.loanAmount}
+Business Age: ${formData.businessAge}
+Location: ${formData.location}
+                
+Please process this eligibility check and respond to the customer.`,
+                to_email: 'bmohinibhadoriya@gmail.com'
             };
 
             const response = await emailjs.send(

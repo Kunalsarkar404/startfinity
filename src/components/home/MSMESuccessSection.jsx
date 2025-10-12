@@ -7,10 +7,10 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const MSMESuccessSection = () => {
     const stats = [
-        { value: '477K+', label: 'MSMEs Registered', sublabel: 'On Udyam Portal', color: 'blue' },
-        { value: '₹500Cr+', label: 'Credit Facilitated', sublabel: 'Since 2020', color: 'purple' },
-        { value: '95%', label: 'Success Rate', sublabel: 'Approval Rate', color: 'green' },
-        { value: '28/36', label: 'Pan India Coverage', sublabel: 'States & UTs', color: 'pink' }
+        { value: '477K+', label: 'MSMEs Registered', sublabel: 'On Udyam Portal' },
+        { value: '₹500Cr+', label: 'Credit Facilitated', sublabel: 'Since 2020' },
+        { value: '95%', label: 'Success Rate', sublabel: 'Approval Rate' },
+        { value: '28/36', label: 'Pan India Coverage', sublabel: 'States & UTs' }
     ];
 
     const topStates = [
@@ -25,16 +25,16 @@ const MSMESuccessSection = () => {
     ];
 
     const sectors = [
-        { name: 'Manufacturing', percentage: 31, icon: FaRocket, color: '#3B82F6' },
-        { name: 'Trading', percentage: 36, icon: FaChartLine, color: '#8B5CF6' },
-        { name: 'Services', percentage: 33, icon: FaShieldAlt, color: '#EC4899' }
+        { name: 'Manufacturing', percentage: 31, icon: FaRocket, color: '#2563eb' },
+        { name: 'Trading', percentage: 36, icon: FaChartLine, color: '#1d4ed8' },
+        { name: 'Services', percentage: 33, icon: FaShieldAlt, color: '#1e40af' }
     ];
 
     const governmentSupport = [
-        { value: '₹4.14L Cr', label: 'MUDRA loans', color: 'blue' },
-        { value: '₹7,593 Cr', label: 'SRI Fund invested', color: 'purple' },
-        { value: '200+', label: 'RAMP proposals', color: 'green' },
-        { value: '20.5%', label: 'Women-owned', color: 'pink' }
+        { value: '₹4.14L Cr', label: 'MUDRA loans' },
+        { value: '₹7,593 Cr', label: 'SRI Fund invested' },
+        { value: '200+', label: 'RAMP proposals' },
+        { value: '20.5%', label: 'Women-owned' }
     ];
 
     // Pie chart data
@@ -88,9 +88,9 @@ const MSMESuccessSection = () => {
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`bg-white border-2 border-${stat.color}-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-${stat.color}-200 transition-all duration-200`}
+                            className="bg-white border-2 border-primary-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-200"
                         >
-                            <p className={`text-2xl md:text-3xl font-bold text-${stat.color}-600 mb-2`}>{stat.value}</p>
+                            <p className="text-2xl md:text-3xl font-bold text-primary-600 mb-2">{stat.value}</p>
                             <p className="text-base font-semibold text-gray-700 mb-1">{stat.label}</p>
                             <p className="text-sm text-gray-500">{stat.sublabel}</p>
                         </div>
@@ -115,11 +115,11 @@ const MSMESuccessSection = () => {
                             <p className="text-sm text-gray-600 mb-2">📍 Startups Across India</p>
                             <div className="flex justify-center items-center space-x-4 text-xs">
                                 <div className="flex items-center">
-                                    <div className="w-3 h-3 bg-blue-600 rounded mr-1"></div>
+                                    <div className="w-3 h-3 bg-primary-600 rounded mr-1"></div>
                                     <span>High Density States</span>
                                 </div>
                                 <div className="flex items-center">
-                                    <div className="w-3 h-3 bg-blue-300 rounded mr-1"></div>
+                                    <div className="w-3 h-3 bg-primary-300 rounded mr-1"></div>
                                     <span>Emerging States</span>
                                 </div>
                             </div>
@@ -135,17 +135,17 @@ const MSMESuccessSection = () => {
                             {topStates.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex justify-between items-center hover:border-blue-200 hover:shadow-sm transition-all duration-200 cursor-pointer group"
+                                    className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex justify-between items-center hover:border-primary-200 hover:shadow-sm transition-all duration-200 cursor-pointer group"
                                     title={`${item.state} - ${item.count} MSMEs`}
                                 >
                                     <div className="flex items-center">
                                         <span className="text-sm font-bold text-gray-500 w-6">{index + 1}</span>
-                                        <span className="font-semibold text-gray-900 ml-3 group-hover:text-blue-600 transition-colors">
+                                        <span className="font-semibold text-gray-900 ml-3 group-hover:text-primary-600 transition-colors">
                                             {item.state}
                                         </span>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-blue-600 font-bold text-lg">{item.count}</span>
+                                        <span className="text-primary-600 font-bold text-lg">{item.count}</span>
                                     </div>
                                 </div>
                             ))}
@@ -158,10 +158,13 @@ const MSMESuccessSection = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center">
                         Sector Distribution
                     </h3>
-                    <div className="flex justify-center items-center space-x-8">
-                        <div className="w-full max-w-xs" style={{ height: '250px' }}>
+                    <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0">
+                        {/* Pie Chart */}
+                        <div className="w-full max-w-xs md:max-w-sm" style={{ height: '250px' }}>
                             <Pie data={pieData} options={pieOptions} />
                         </div>
+
+                        {/* Sector List */}
                         <div className="space-y-4">
                             {sectors.map((sector, index) => {
                                 const Icon = sector.icon;
@@ -183,6 +186,7 @@ const MSMESuccessSection = () => {
                         </div>
                     </div>
                 </div>
+
 
                 {/* Government Support */}
                 <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm">

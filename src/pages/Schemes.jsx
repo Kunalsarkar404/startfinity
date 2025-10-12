@@ -196,7 +196,7 @@ const Schemes = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+            <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-5xl font-bold mb-6">Government Funding Schemes</h1>
@@ -243,7 +243,7 @@ const Schemes = () => {
                                         key={category.id}
                                         onClick={() => setSelectedCategory(category.id)}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category.id
-                                            ? 'bg-blue-600 text-white'
+                                            ? 'bg-primary-600 text-white'
                                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                             }`}
                                     >
@@ -261,7 +261,7 @@ const Schemes = () => {
                                     key={type.id}
                                     onClick={() => setSelectedType(type.id)}
                                     className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${selectedType === type.id
-                                        ? 'bg-purple-600 text-white'
+                                        ? 'bg-primary-600 text-white'
                                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                         }`}
                                 >
@@ -280,12 +280,7 @@ const Schemes = () => {
                         {filteredSchemes.map(scheme => (
                             <div key={scheme.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full">
                                 {/* Scheme Header */}
-                                <div className={`p-6 bg-gradient-to-r ${scheme.category === 'loans' ? 'from-blue-500 to-blue-600' :
-                                    scheme.category === 'grants' ? 'from-green-500 to-green-600' :
-                                        scheme.category === 'technology' ? 'from-purple-500 to-purple-600' :
-                                            scheme.category === 'manufacturing' ? 'from-orange-500 to-orange-600' :
-                                                'from-indigo-500 to-indigo-600'
-                                    } text-white`}>
+                                <div className="p-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
                                     <div className="flex justify-between items-start mb-3">
                                         <h3 className="text-xl font-bold leading-tight">{scheme.shortName}</h3>
                                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${scheme.type === 'central' ? 'bg-white/20' : 'bg-white/30'
@@ -379,7 +374,7 @@ const Schemes = () => {
             </section>
 
             {/* Call to Action */}
-            <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+            <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
                 <div className="container mx-auto px-4 text-center">
                     <div className="max-w-3xl mx-auto text-white">
                         <h2 className="text-3xl font-bold mb-4">Need Help Choosing the Right Scheme?</h2>

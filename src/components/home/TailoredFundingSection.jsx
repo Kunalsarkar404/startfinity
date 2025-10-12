@@ -94,7 +94,7 @@ const TailoredFundingSection = () => {
                             className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-lg transition-all duration-200 relative"
                         >
                             {scheme.popular && (
-                                <span className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-lg">
+                                <span className="absolute top-4 right-4 bg-primary-100 text-primary-700 text-xs font-bold px-3 py-1 rounded-lg">
                                     ⚡ Popular
                                 </span>
                             )}

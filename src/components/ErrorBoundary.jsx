@@ -103,8 +103,8 @@ class ErrorBoundary extends React.Component {
                         {/* Support Message */}
                         <p className="text-sm text-gray-500 mt-8">
                             If this problem persists, please contact our support team at{' '}
-                            <a href="mailto:support@startfinity.com" className="text-primary-600 hover:underline font-medium">
-                                support@startfinity.com
+                            <a href="mailto:bmohinibhadoriya@gmail.com" className="text-primary-600 hover:underline font-medium">
+                                bmohinibhadoriya@gmail.com
                             </a>
                         </p>
                     </div>
