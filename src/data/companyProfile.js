@@ -57,7 +57,7 @@ export const companyProfile = {
     // Business Statistics
     statistics: {
         clientsServed: "20,000+",
-        fundingFacilitated: "₹200+ Crores",
+        fundingFacilitated: "120+ Crores",
         successRate: "95%",
         statesCovered: "28/36",
         avgProcessingTime: "48 hours",
@@ -235,7 +235,6 @@ export const companyProfile = {
 export const successStories = [
     {
         clientName: "Ramesh Gupta",
-        businessName: "Gupta Manufacturing Pvt Ltd",
         location: "Gujarat",
         industry: "Manufacturing",
         fundingAmount: "₹25 Lakhs",
@@ -243,11 +242,10 @@ export const successStories = [
         year: 2023,
         story: "Started with a small textile unit, now employs 25 people and generates ₹3 Cr annual revenue",
         growth: "300% revenue growth in 2 years",
-        testimonial: "STARTFINITY made the impossible possible. Their team guided us through every step."
+        testimonial: "The team made the funding process incredibly smooth. Their expertise and guidance helped us navigate through complex documentation and secure the perfect loan for our manufacturing expansion."
     },
     {
         clientName: "Priya Sharma",
-        businessName: "TechWomen Solutions",
         location: "Bangalore",
         industry: "Technology",
         fundingAmount: "₹50 Lakhs",
@@ -255,11 +253,10 @@ export const successStories = [
         year: 2022,
         story: "Woman-led SaaS startup serving 500+ clients across India",
         growth: "From idea to ₹5 Cr valuation in 18 months",
-        testimonial: "As a woman entrepreneur, STARTFINITY gave me the confidence and capital to dream big."
+        testimonial: "As a woman entrepreneur, I was initially hesitant about the funding process. The professional support and mentorship I received gave me confidence to scale my technology business beyond my expectations."
     },
     {
         clientName: "Mohammad Ali Khan",
-        businessName: "Khan Exports",
         location: "Mumbai",
         industry: "Export",
         fundingAmount: "₹1.2 Crores",
@@ -267,7 +264,40 @@ export const successStories = [
         year: 2023,
         story: "Exporting handicrafts to 15 countries, creating employment for 100+ artisans",
         growth: "500% export volume increase",
-        testimonial: "STARTFINITY understood our export business and connected us with the right funding."
+        testimonial: "The team understood the complexities of export financing and connected us with specialized lenders. Their knowledge of government schemes helped us access capital we didn't even know existed."
+    },
+    {
+        clientName: "Anjali Patel",
+        location: "Ahmedabad",
+        industry: "Business Services",
+        fundingAmount: "Company Registration",
+        scheme: "Pvt Ltd Company",
+        year: 2023,
+        story: "Registered private limited company and obtained all necessary licenses within 15 days",
+        growth: "Legally compliant business operations from day one",
+        testimonial: "The business registration process was seamless and transparent. Every document was prepared professionally, and I received constant updates. They handled everything from name approval to GST registration effortlessly."
+    },
+    {
+        clientName: "Vikram Singh",
+        location: "Delhi",
+        industry: "Food & Beverage",
+        fundingAmount: "LLP Registration",
+        scheme: "LLP + FSSAI License",
+        year: 2024,
+        story: "Established food processing unit with proper compliance and licensing",
+        growth: "Zero compliance issues, smooth business operations",
+        testimonial: "I was overwhelmed by the legal requirements for food business. The team not only registered our LLP but also guided us through FSSAI licensing and other regulatory approvals. Professional service at every step."
+    },
+    {
+        clientName: "Neha Agarwal",
+        location: "Pune",
+        industry: "Technology",
+        fundingAmount: "Custom Software",
+        scheme: "App Development",
+        year: 2024,
+        story: "Built complete digital platform for client management and automated operations",
+        growth: "40% operational efficiency improvement, 60% cost reduction",
+        testimonial: "They transformed our traditional business into a digital powerhouse. The custom software solution perfectly matched our workflow, and the mobile app helped us reach customers we never could before. Excellent technical expertise."
     }
 ];
 
