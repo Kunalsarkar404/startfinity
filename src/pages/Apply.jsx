@@ -10,8 +10,27 @@ const Apply = () => {
         fullName: '',
         email: '',
         phone: '',
-        businessName: ''
+        businessName: '',
+        serviceType: ''
     });
+
+    // Available services list with descriptions
+    const serviceOptions = [
+        { value: 'Business Loans', description: 'Working capital, term loans, and equipment financing for business growth' },
+        { value: 'Government Schemes', description: 'PMEGP, Mudra loans, and other government-backed funding programs' },
+        { value: 'Business Registration', description: 'Complete support for company registration and legal compliance' },
+        { value: 'Financial Advisory', description: 'Strategic financial consulting and advisory services' },
+        { value: 'Company Registration', description: 'Private Limited, LLP, and other company incorporation services' },
+        { value: 'GST Certificate', description: 'GST registration and ongoing compliance management' },
+        { value: 'Company Compliances', description: 'Annual filings, audit support, and regulatory compliance' },
+        { value: 'Software Development', description: 'Custom web applications, mobile apps, and digital solutions' }
+    ];
+
+    // Get description for selected service
+    const getServiceDescription = (serviceType) => {
+        const service = serviceOptions.find(option => option.value === serviceType);
+        return service ? service.description : '';
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,7 +52,8 @@ const Apply = () => {
                     fullName: '',
                     email: '',
                     phone: '',
-                    businessName: ''
+                    businessName: '',
+                    serviceType: ''
                 });
             } else {
                 setError(result.message);
@@ -48,12 +68,15 @@ const Apply = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12">
+            <section className="bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 text-white py-16">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl font-bold mb-4">Apply for Funding</h1>
-                        <p className="text-lg text-gray-100">
-                            Fill in your basic details and our experts will connect with you soon
+                        <div className="inline-flex items-center bg-primary-500/20 backdrop-blur-sm border border-primary-400/30 rounded-full px-6 py-2 mb-6">
+                            <span className="text-sm font-medium">✓ Government Recognized Services</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">Apply for Our Services</h1>
+                        <p className="text-xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
+                            Choose from our comprehensive range of business services and let our experts guide you through the process
                         </p>
                     </div>
                 </div>
@@ -74,50 +97,72 @@ const Apply = () => {
 
                             <div className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-semibold mb-2">Full Name *</label>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-700">Service Type *</label>
+                                    <select
+                                        name="serviceType"
+                                        value={formData.serviceType}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900"
+                                    >
+                                        <option value="">Select a service</option>
+                                        {serviceOptions.map((service, index) => (
+                                            <option key={index} value={service.value}>
+                                                {service.value}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    {formData.serviceType && (
+                                        <p className="mt-2 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
+                                            ℹ️ {getServiceDescription(formData.serviceType)}
+                                        </p>
+                                    )}
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-700">Full Name *</label>
                                     <input
                                         type="text"
                                         name="fullName"
                                         value={formData.fullName}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                                         placeholder="Enter your full name"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold mb-2">Email Address *</label>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-700">Email Address *</label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                                         placeholder="your.email@example.com"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold mb-2">Phone Number *</label>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-700">Phone Number *</label>
                                     <input
                                         type="tel"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                                         placeholder="+91 XXXXX XXXXX"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold mb-2">Business Name *</label>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-700">Business Name *</label>
                                     <input
                                         type="text"
                                         name="businessName"
                                         value={formData.businessName}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                                         placeholder="Your business name"
                                     />
                                 </div>
@@ -126,9 +171,9 @@ const Apply = () => {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                className="w-full mt-8 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                             >
-                                {loading ? 'Submitting...' : 'Submit Application'}
+                                {loading ? 'Submitting Application...' : 'Submit Application'}
                             </button>
                         </form>
                     </div>
@@ -177,18 +222,18 @@ const Apply = () => {
                             </h3>
 
                             <p className="text-gray-600 mb-6">
-                                Your application has been received successfully. Our expert will connect with you soon to discuss your funding requirements.
+                                Your {formData.serviceType || 'service'} application has been received successfully. Our expert will connect with you soon to discuss your requirements and guide you through the process.
                             </p>
 
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                                <p className="text-sm text-blue-800">
+                            <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-6">
+                                <p className="text-sm text-primary-800">
                                     <strong>What happens next:</strong>
                                 </p>
-                                <ul className="text-sm text-blue-700 mt-2 space-y-1">
+                                <ul className="text-sm text-primary-700 mt-2 space-y-1">
                                     <li>• Our expert will call you within 2-4 hours</li>
-                                    <li>• Discuss your funding needs and eligibility</li>
+                                    <li>• Discuss your {formData.serviceType?.toLowerCase() || 'service'} requirements in detail</li>
                                     <li>• Guide you through the documentation process</li>
-                                    <li>• Help you choose the best funding option</li>
+                                    <li>• Provide timeline and next steps for your application</li>
                                 </ul>
                             </div>                            <div className="flex gap-4">
                                 <button
@@ -196,7 +241,7 @@ const Apply = () => {
                                         setShowSuccessModal(false);
                                         window.location.href = '/';
                                     }}
-                                    className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                                    className="flex-1 bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
                                 >
                                     Go to Homepage
                                 </button>

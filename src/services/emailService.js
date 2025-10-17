@@ -52,16 +52,19 @@ export const emailService = {
                 from_name: formData.fullName,
                 from_email: formData.email,
                 phone: formData.phone,
-                subject: 'New Funding Application Submitted',
-                message: `New funding application received:
+                subject: `New ${formData.serviceType} Application Submitted`,
+                message: `New service application received:
                 
+Service Type: ${formData.serviceType}
 Name: ${formData.fullName}
 Email: ${formData.email}
 Phone: ${formData.phone}
 Business Name: ${formData.businessName}
                 
-Please contact this applicant for further processing.`,
-                to_email: 'info@startfinitynavigator.com'
+Please contact this applicant for ${formData.serviceType} service processing.`,
+                service_type: formData.serviceType,
+                business_name: formData.businessName,
+                to_email: 'bmohinibhadoriya@gmail.com'
             };
 
             const response = await emailjs.send(
@@ -72,7 +75,7 @@ Please contact this applicant for further processing.`,
 
             return {
                 success: true,
-                message: 'Application submitted successfully! Our expert will connect with you soon.',
+                message: `${formData.serviceType} application submitted successfully! Our expert will connect with you soon.`,
                 data: response
             };
         } catch (error) {
