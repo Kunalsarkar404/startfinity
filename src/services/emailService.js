@@ -55,16 +55,16 @@ export const emailService = {
                 subject: `New ${formData.serviceType} Application Submitted`,
                 message: `New service application received:
                 
-Service Type: ${formData.serviceType}
 Name: ${formData.fullName}
 Email: ${formData.email}
 Phone: ${formData.phone}
 Business Name: ${formData.businessName}
+Service Type: ${formData.serviceType}
                 
 Please contact this applicant for ${formData.serviceType} service processing.`,
                 service_type: formData.serviceType,
                 business_name: formData.businessName,
-                to_email: 'bmohinibhadoriya@gmail.com'
+                to_email: 'info@startfinitynavigator.com'
             };
 
             const response = await emailjs.send(
@@ -86,14 +86,12 @@ Please contact this applicant for ${formData.serviceType} service processing.`,
                 error: error
             };
         }
-    },
-
-    // Send eligibility form email
+    },    // Send eligibility form email
     sendEligibilityForm: async (formData) => {
         try {
             const templateParams = {
                 from_name: 'Eligibility Check Request',
-                from_email: 'bmohinibhadoriya@gmail.com',
+                from_email: 'info@startfinitynavigator.com',
                 phone: 'N/A',
                 subject: 'New Eligibility Check Submitted',
                 message: `New eligibility check request received:
@@ -105,7 +103,7 @@ Business Age: ${formData.businessAge}
 Location: ${formData.location}
                 
 Please process this eligibility check and respond to the customer.`,
-                to_email: 'bmohinibhadoriya@gmail.com'
+                to_email: 'info@startfinitynavigator.com'
             };
 
             const response = await emailjs.send(
